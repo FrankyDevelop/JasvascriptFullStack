@@ -1,7 +1,32 @@
-const {Router}=require('express');//Desde express requerimos solo su metodo Router
-const router=Router();
+const { Router } = require("express"); //Desde express requerimos solo su metodo Router
+const router = Router();
 
-router.get('/',(req,res)=>res.json({text:"Hola :v"}));
+const Book = require("../models/book");
 
+//TODO: CRUD de libros
+
+//LISTAR
+router.get("/", async (req, res) => {
+  //consulta mongodb
+  const books = await Book.find();
+  res.json(books); //recibimos como respuesta los libros
+});
+
+//CREAR
+router.post("/", async (req, res) => {
+  //Extraer datos de los libros a guardar
+  const { title, author, isbn } = req.body;
+  //Tomamos el contenido que se extrajo
+  const newBook = new Book({ title, author, isbn });
+  //Guardamos el contenido
+  await newBook.save();
+  res.send({ message: "Libro guardado" });
+});
+
+//Delete
+router.delete("/:id", async (req, res) => {
+  await Book.findByIdAndDelete(req.params.id);
+  res.send({ message: "Eliminando" });
+});
 //exportamos la constate router para que la use el index.js
-module.exports=router;
+module.exports = router;

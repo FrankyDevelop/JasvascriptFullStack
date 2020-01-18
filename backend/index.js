@@ -3,7 +3,9 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();//modulo para variables de entorno
 }
 
+
 const path = require("path"); //resuelve problemas del / en otros SO
+
 const express = require("express");
 const morgan = require("morgan"); //nos permite ver lo que las peticiones de aplicaciones clientes
 const multer = require("multer"); //modulo para gestionar imagenes
