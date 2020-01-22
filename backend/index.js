@@ -9,7 +9,7 @@ const path = require("path"); //resuelve problemas del / en otros SO
 const express = require("express");
 const morgan = require("morgan"); //nos permite ver lo que las peticiones de aplicaciones clientes
 const multer = require("multer"); //modulo para gestionar imagenes
-
+const cors=require('cors');//permite que 2 servidores se puedan comunicar
 //Inicializadores
 const app = express();
 require("./database");
@@ -26,11 +26,11 @@ const storage = multer.diskStorage({
     //con file.originalname obtenemos el nombre del archivo y con path.extraname la extension
     //es decir que con eso sacamos la extension sin el nombre
   }
-});
-app.use(multer(storage).single("image")); //con image multer determina si lo que se sube es una imagen
+})
+app.use(multer({storage}).single("image")); //con image multer determina si lo que se sube es una imagen
 app.use(express.urlencoded({ extended: false })); //interpretar datos de formularios como un JSON
 app.use(express.json()); //entender cuando te envian solo JSOn sin formularios incluso
-
+app.use(cors());
 //ROUTES
 app.use("/api/books", require("./routes/books"));
 

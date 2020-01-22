@@ -4,6 +4,7 @@ const cssWebpack = require("mini-css-extract-plugin"); //modulo para minificar c
 
 //Determinar estado de desarrollo
 const devMode = process.env.NODE_ENV != "production";
+console.log(devMode);
 
 //TODO: configuración webpack
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
     path: path.join(__dirname, "backend/public"), //ruta de la carpeta
     filename: "js/bundle.js" //nombre del archivo
   },
-
+  mode:'development',
   module: {
     //rules determina el comportamiento de los archivos que elijamos
     rules: [
@@ -49,6 +50,5 @@ module.exports = {
     new cssWebpack({
       filename: "css/bundle.css"
     })
-
   ]
 };

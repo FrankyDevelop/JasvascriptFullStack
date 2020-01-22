@@ -16,8 +16,10 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   //Extraer datos de los libros a guardar
   const { title, author, isbn } = req.body;
+  //Extraemos el nombre  de la imagen
+  const imagePath = "/uploads/" + req.file.filename;
   //Tomamos el contenido que se extrajo
-  const newBook = new Book({ title, author, isbn });
+  const newBook = new Book({ title, author, isbn, imagePath });
   //Guardamos el contenido
   await newBook.save();
   res.send({ message: "Libro guardado" });

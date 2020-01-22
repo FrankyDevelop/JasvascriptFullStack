@@ -6,8 +6,9 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node backend/index.js",
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
-    "live": "live-server src/public",
-    "build":"cross-env NODE_ENV=production webpack"
+    "live": "live-server frontend",
+    "build":"cross-env NODE_ENV=production webpack",
+    "devServer":"webpack-dev-server"
   },
   "keywords": [],
   "author": "FrankyDeveloper",
