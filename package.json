@@ -7,6 +7,7 @@
     "start": "cross-env NODE_ENV=production node backend/index.js",
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
     "live": "live-server frontend",
+    "postinstall": "npm run build",
     "build":"cross-env NODE_ENV=production webpack",
     "devServer":"webpack-dev-server"
   },

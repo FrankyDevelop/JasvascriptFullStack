@@ -11,13 +11,17 @@ class UI {
     const bookCard = document.getElementById("book-card");
     bookCard.innerHTML = ``; //los inciamos vacios
 
+    /*Codigo en desarrollo
+    <img src="http://localhost:3000${
+            book.imagePath
+          }" alt="" class="img-fluid"> */
     books.forEach(book => {
       const div = document.createElement("div");
       div.className = ``;
       div.innerHTML = `<div class="card md-2">
       <div class="row">
         <div class="col-md-4">
-          <img src="http://localhost:3000${
+          <img src="${
             book.imagePath
           }" alt="" class="img-fluid">
          </div>
