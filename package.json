@@ -4,11 +4,11 @@
   "description": "SPA con nodejs puro",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node backend/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
+    "server:dev": "nodemon backend/index.js --ignore frontend",
+    "build": "NODE_ENV=production webpack -p",
+    "dev": "webpack-dev-server --open",
     "postinstall": "npm run build",
-    "build": "cross-env NODE_ENV=production webpack",
-    "devServer": "webpack-dev-server"
+    "start": "node backend/index.js"
   },
   "keywords": [],
   "author": "FrankyDeveloper",
