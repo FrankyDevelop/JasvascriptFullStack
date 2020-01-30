@@ -4,11 +4,13 @@
   "description": "SPA con nodejs puro",
   "main": "index.js",
   "scripts": {
-    "server:dev": "nodemon backend/index.js --ignore frontend",
+    
+    "dev:devServer": "nodemon backend/index.js --ignore frontend",
     "build": "NODE_ENV=production webpack -p",
-    "dev": "webpack-dev-server --open",
+    "devServer": "webpack-dev-server",
     "postinstall": "npm run build",
     "start": "node backend/index.js"
+    
   },
   "keywords": [],
   "author": "FrankyDeveloper",
