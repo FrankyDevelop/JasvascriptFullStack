@@ -4,7 +4,7 @@ class BookServices {
   constructor() {
     /*En desarrollo 
     this.URI = "http://localhost:3000/api/books";*/
-    this.URI = "/api/books";
+    this.URI = `/api/books`;
   }
 
   //Obtener libros
