@@ -6,7 +6,7 @@
   "scripts": {
     
     "dev:devServer": "nodemon backend/index.js --ignore frontend",
-    "build": "NODE_ENV=production webpack -p",
+    "build": "cross-env NODE_ENV=production webpack",
     "devServer": "webpack-dev-server",
     "postinstall": "npm run build",
     "start": "node backend/index.js"
