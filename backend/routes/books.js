@@ -1,6 +1,7 @@
 const { Router } = require("express"); //Desde express requerimos solo su metodo Router
 const router = Router();
-
+const { unlink } = require("fs-extra"); //modulo de node encargado de eliminar imagenes
+const path = require("path");
 const Book = require("../models/book");
 
 //TODO: CRUD de libros
@@ -27,7 +28,8 @@ router.post("/", async (req, res) => {
 
 //Delete
 router.delete("/:id", async (req, res) => {
-  await Book.findByIdAndDelete(req.params.id);
+  const book=await Book.findByIdAndDelete(req.params.id);
+  unlink(path.resolve("./backend/public" + book.imagePath))
   res.send({ message: "Eliminando" });
 });
 //exportamos la constate router para que la use el index.js

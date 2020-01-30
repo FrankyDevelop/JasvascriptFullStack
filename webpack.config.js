@@ -14,7 +14,7 @@ module.exports = {
     path: path.join(__dirname, "backend/public"), //ruta de la carpeta
     filename: "js/bundle.js" //nombre del archivo
   },
-  mode:'development',
+  mode:'production',
   module: {
     //rules determina el comportamiento de los archivos que elijamos
     rules: [
