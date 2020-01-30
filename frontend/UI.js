@@ -21,9 +21,7 @@ class UI {
       div.innerHTML = `<div class="card md-2">
       <div class="row">
         <div class="col-md-4">
-          <img src="${
-            book.imagePath
-          }" alt="" class="img-fluid">
+          <img src="${book.imagePath}" alt="" class="img-fluid">
          </div>
          <div class="col-md-8">
            <div class="card-block px-2">
